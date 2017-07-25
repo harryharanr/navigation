@@ -1,0 +1,51 @@
+<h2 class="text-center">Add Hospital</h2>
+
+<form [formGroup]="form" (submit)="onHospitalRegister()">
+
+  <!-- Hospitalname Input -->
+  <div class="form-group">
+    <label for="hospitalName">Hospital Name</label>
+    <div>
+      <input type="text" name="hospitalName" class="form-control" autocomplete="off" placeholder="*Hospital Name" formControlName="hospitalName" />
+    </div>
+  </div>
+
+  <!-- Hospitalemail Input -->
+  <div class="form-group">
+    <label for="hospitalEmail">Hospital Email</label>
+    <div>
+      <input type="text" name="hospitalEmail" class="form-control" autocomplete="off" placeholder="*Hospital Email" formControlName="hospitalEmail" />
+    </div>
+  </div>
+
+  <!-- Hospitalwebsite Input -->
+  <div class="form-group">
+    <label for="hospitalWebsite">Hospital Website</label>
+    <div>
+      <input type="text" name="hospitalWebsite" class="form-control" autocomplete="off" placeholder="*Hospital Website" formControlName="hospitalWebsite" />
+    </div>
+  </div>
+
+  <!-- Submit Input -->
+  <input type="submit" class="btn btn-primary" value="Submit" />
+
+</form>
+
+<div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Website</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let list of hospitalLists">
+          <td>{{list.hospitalName}}</td>
+          <td>{{list.hospitalEmail}}</td>
+          <td>{{list.hospitalWebsite}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

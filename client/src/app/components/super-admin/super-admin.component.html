@@ -1,0 +1,139 @@
+<div class="container">
+    
+    <div class="row">
+        <h1 class="text-center col-md-9">Super Admin View</h1>
+        <button type="button" class="btn btn-primary col-md-offset-2 col-md-1" (click)="logout()">Logout</button>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3 col-md-3">
+            <div class="panel-group" id="accordion">
+                
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                            <a routerLink='/superadmin/dashboard' data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+                            </span>Dashboard</a>
+                        </h4>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                            <a routerLink='/superadmin/hospital' data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+                            </span>Hospital Management</a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                                    <td>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a routerLink='/superadmin/hospital/add-hospital'>Add Hospital</a>
+                                    </td>
+                                </tr>
+                                <tr [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                                    <td>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a routerLink='/superadmin/hospital/add-branch'>Add Branch</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                            <a routerLink='/superadmin/user' data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+                            </span>User Management</a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                                    <td>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a routerLink='/superadmin/user/add-hospital-admin'>Add Hospital Admin</a>
+                                    </td>
+                                </tr>
+                                <tr [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                                    <td>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a routerLink='/superadmin/user/add-branch-admin'>Add Branch Admin</a>
+                                    </td>
+                                </tr>
+                                <tr [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                                    <td>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a routerLink='/superadmin/user/add-surgeon'>Add Surgeon</a>
+                                    </td>
+                                </tr>
+                                <tr [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                                    <td>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a routerLink='/superadmin/user/add-support-staff'>Add Support Staff</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                            <a routerLink='/superadmin/prosthesis' data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+                            </span>Prosthesis Management</a>
+                        </h4>
+                    </div>
+                    <!--<div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                                    <td>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a routerLink='/dashboard/hospital/addhospital'>Add Hospital</a>
+                                    </td>
+                                </tr>
+                                <tr [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                                    <td>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a routerLink='/dashboard/hospital/addbranch'>Add Branch</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>-->
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                            <a routerLink='/superadmin/options' data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+                            </span>Options Management</a>
+                        </h4>
+                    </div>
+                    <!--<div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                                    <td>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a routerLink='/dashboard/hospital/addhospital'>Add Hospital</a>
+                                    </td>
+                                </tr>
+                                <tr [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                                    <td>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a routerLink='/dashboard/hospital/addbranch'>Add Branch</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>-->
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-9 col-md-9">
+            <div class="well">
+                    <router-outlet></router-outlet> 
+            </div>
+        </div>
+    </div>
+</div>
