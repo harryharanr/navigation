@@ -12,8 +12,11 @@ import { HospitalService } from '../../../../services/hospital.service';
 export class AddHospitalComponent implements OnInit {
 
   form;
+  
   hospitalLists;
   newHospital;
+  hospitalDetails;
+  branchDetails;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -49,10 +52,43 @@ export class AddHospitalComponent implements OnInit {
   // Get all hospitals 
   getAllHospitals(){
     this.hospitalService.getHospitals().subscribe(data => {
-      this.hospitalLists = data.message;
+      this.hospitalLists = data.message;      
     });
   }
 
+  //manageBranch
+  manageBranch(id){
+    //this.hospitalService.getSingleHospital(id);
+    this.router.navigate(['/superadmin/hospital/add-branch/'+id]);
+    // this.hospitalService.getSingleHospital(id).subscribe(data => {
+    //   if(data){
+    //     this.router.navigate(['/superadmin/hospital/add-branch']);
+    //   }
+    // });
+    //this.router.navigate(['/superadmin/hospital/add-branch']);
+  }
+
+  // manageBranch(id){
+  //   this.getAllHospitals();
+  //   this.hospitalService.getSingleHospital(id).subscribe(data => {
+  //       this.hospitalDetails = data.message;
+  //   });
+  //   //this.router.navigate(['/superadmin/hospital/add-branch']);
+  // }
+
+  // addBranch(id){
+  //   const branch = {
+  //       branchName : this.branchForm.get('branchName').value,
+  //       branchEmail : this.branchForm.get('branchEmail').value
+  //   };
+
+  //   this.hospitalService.addBranch(id,branch).subscribe(data => {
+  //     console.log(data);
+  //     this.getAllHospitals();
+  //     //window.location.reload();
+  //   });   
+
+  // }
 
   ngOnInit() {
     this.getAllHospitals();

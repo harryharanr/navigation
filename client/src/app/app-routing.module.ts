@@ -46,7 +46,7 @@ const appRoutes: Routes = [
                         component:AddHospitalComponent
                     },
                     {
-                        path:'add-branch',
+                        path:'add-branch/:id',
                         component:AddBranchComponent
                     }
                 ]

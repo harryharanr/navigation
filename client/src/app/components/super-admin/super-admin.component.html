@@ -30,12 +30,12 @@
                             <table class="table">
                                 <tr [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                                     <td>
-                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a routerLink='/superadmin/hospital/add-hospital'>Add Hospital</a>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a [routerLink]="['/superadmin/hospital/add-hospital']">Add Hospital</a>
                                     </td>
                                 </tr>
                                 <tr [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                                     <td>
-                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a routerLink='/superadmin/hospital/add-branch'>Add Branch</a>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a [routerLink]="['/superadmin/hospital/add-branch',id]">Add Branch</a>
                                     </td>
                                 </tr>
                             </table>

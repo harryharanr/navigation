@@ -1,3 +1,36 @@
-<p>
-  add-branch works!
-</p>
+<div *ngIf = "selectHospital" class="jumbotron">
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Hospital
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu" *ngFor="let hospitalName of hospitalLists">
+          <li>{{hospitalName.hospitalName}}</li>
+        </ul> 
+    </div>
+
+    <ul *ngFor="let hospitalName of hospitalLists">
+      <li (click)="addBranch(hospitalName._id)">{{hospitalName.hospitalName}}</li>
+    </ul>
+</div>
+<div *ngIf = "!selectHospital">
+    <form [formGroup]="branchForm" name="form" (submit)="onBranchRegister(singleHospital._id)">
+        <h3 class="text-center">{{singleHospital.hospitalName}}</h3>
+        <!-- Branch Name Input -->
+      <div class="form-group">
+        <label for="branchName">Branch Name</label>
+        <div>
+          <input type="text" name="branchName" class="form-control" autocomplete="off" placeholder="*Branch Name" formControlName="branchName" />
+        </div>
+      </div>
+
+      <!-- Submit Input -->
+      <input type="submit" class="btn btn-primary" value="Submit" />
+
+    </form>
+
+    <div>
+      <ul *ngFor="let branch of branches">
+        <li>{{branch.branchName}}</li>
+      </ul>
+    </div>
+
+</div>

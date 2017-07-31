@@ -1,6 +1,6 @@
 <h2 class="text-center">Add Hospital</h2>
 
-<form [formGroup]="form" (submit)="onHospitalRegister()">
+<form [formGroup]="form" name="form" (submit)="onHospitalRegister()">
 
   <!-- Hospitalname Input -->
   <div class="form-group">
@@ -35,17 +35,28 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Website</th>
+          <th class="text-center">Name</th>
+          <th class="text-center">Email</th>
+          <th class="text-center">Website</th>
+          <th class="text-center">Branch</th>
+          <th class="text-center">No of Branches</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let list of hospitalLists">
-          <td>{{list.hospitalName}}</td>
-          <td>{{list.hospitalEmail}}</td>
-          <td>{{list.hospitalWebsite}}</td>
+          <td class="text-center">{{list.hospitalName}}</td>
+          <td class="text-center">{{list.hospitalEmail}}</td>
+          <td class="text-center">{{list.hospitalWebsite}}</td>
+          <td class="text-center">{{list.hasBranch}}</td>
+          <td class="text-center">
+            {{list.noOfBranches}}
+            <!--<a (click)="manageBranch(list._id)">(Manage)</a>-->
+            <button (click)="manageBranch(list._id)" type="button" class="btn btn-info btn-xs">Manage</button>
+          </td>
         </tr>
       </tbody>
     </table>
 </div>
+
+<!-- Modal -->
+     
