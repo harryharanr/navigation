@@ -1,6 +1,6 @@
 import { Component, OnInit , OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import {HospitalService} from '../../services/hospital.service';
+import { HospitalService } from '../../services/hospital.service';
 
 @Component({
   selector: 'app-super-admin',
@@ -9,16 +9,12 @@ import {HospitalService} from '../../services/hospital.service';
 })
 export class SuperAdminComponent implements OnInit {
 
-  
-
   constructor(
     private router:Router,
     private hospitalService:HospitalService,
   ) { 
       
   }
-
-  
 
   logout(){
     this.router.navigate(['/']);
@@ -29,6 +25,7 @@ export class SuperAdminComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.router.url);
   }
 
 }

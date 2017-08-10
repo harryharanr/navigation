@@ -9,6 +9,7 @@ import { HospitalService } from '../../../../services/hospital.service';
   templateUrl: './add-hospital.component.html',
   styleUrls: ['./add-hospital.component.css']
 })
+
 export class AddHospitalComponent implements OnInit {
 
   form;

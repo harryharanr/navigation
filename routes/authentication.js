@@ -1,5 +1,7 @@
 const Hospital = require('../models/hospital'); // Import Hospital Model Schema
+const User = require('../models/user');
 const config = require('../config/database'); // Import database configuration
+const jwt = require('jsonwebtoken');
 
 module.exports = (router) => {
 
@@ -94,6 +96,113 @@ module.exports = (router) => {
             }
         }
     });
+
+    router.post('/login',(req,res) => {
+        if(!req.body.username){
+            res.send({ success:false , message:'Username not provided'});
+        } else {
+            if(!req.body.password){
+                res.send({ success:false , message:'Password not provided'});
+            } else {
+                User.findOne({ username:req.body.username } , (err,user) => {
+                    if(err) {
+                        res.json({ success:false , message:err});
+                    } else {
+                        if(!user){
+                            res.json({ success:false , message:'User not found!'});
+                        } else {
+                            User.findOne({ password:req.body.password } , (err,user)=>{
+                                if(err){
+                                    res.json({ success:false , message:err});
+                                } else {
+                                    const token = jwt.sign({ userId : user._id} , config.secret , {expiresIn:'24h'});
+                                    res.json({ success:true , message:'success' , token:token , user:{name:user.name} });
+                                }
+                            })
+                        }
+                    }
+                })
+            }
+        }
+    });
+
+    router.post('/addHospitalAdmin',(req,res) => {
+        console.log(req.body);
+        let user = new User({
+            name: req.body.adminName,
+            username:req.body.adminUsername,
+            password:req.body.adminPassword,
+            hospitalName:req.body.hospitalName,
+            hospitalId:req.body.id,
+            userType:'hospital_admin',
+        });
+
+        user.save((err) => {
+            if(err){
+                res.json({ success:false , message:err });
+            } else {
+                res.json({ success:true , message:'Admin added'});
+            }
+        });
+    });
+
+    router.post('/addBranchAdmin',(req,res) => {
+        let user = new User({
+            name: req.body.adminName,
+            username:req.body.adminUsername,
+            password:req.body.adminPassword,
+            branchId:req.body.branchId,
+            hospitalId:req.body.hospitalId,
+            userType:'branch_admin',
+        });
+
+        user.save((err) => {
+            if(err){
+                res.json({ success:false , message:err });
+            } else {
+                res.json({ success:true , message:'Branch Admin added'});
+            }
+        });
+    });
+
+    router.post('/addSurgeon',(req,res) => {
+        let user = new User({
+            name: req.body.surgeonName,
+            username:req.body.surgeonUsername,
+            password:req.body.surgeonPassword,
+            branchId:req.body.branchId,
+            hospitalId:req.body.hospitalId,
+            userType:'surgeon',
+        });
+
+        user.save((err) => {
+            if(err){
+                res.json({ success:false , message:err });
+            } else {
+                res.json({ success:true , message:'Surgeon added'});
+            }
+        });
+    });
+
+    router.post('/addSupportStaff',(req,res) => {
+        let user = new User({
+            name: req.body.supportStaffName,
+            username:req.body.supportStaffUsername,
+            password:req.body.supportStaffPassword,
+            branchId:req.body.branchId,
+            hospitalId:req.body.hospitalId,
+            userType:'support_staff',
+        });
+
+        user.save((err) => {
+            if(err){
+                res.json({ success:false , message:err });
+            } else {
+                res.json({ success:true , message:'Support Staff added'});
+            }
+        });
+    });
+
 
     return router;
 }

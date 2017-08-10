@@ -15,3 +15,4 @@ const hospitalSchema = new Schema({
 },{collection:'hospital'});
 
 module.exports = mongoose.model('hospital' , hospitalSchema);
+
